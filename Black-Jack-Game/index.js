@@ -1,37 +1,56 @@
-let card1 = 11;
-let card2 = 5;
-let sum = card1 + card2;
+let cards = [];
+let sum = 0;
+let message = "";
 let distributerEl = document.getElementById("distributer");
 let cardsEl = document.getElementById("cards");
 let sumEl = document.getElementById("sum");
-let message = "";
-let won = true;
-let lost = false;
+
+let blackJack = false;
+let isAlive = false;
+
+function getRandomNumber() {
+  let randomNumber = Math.floor(Math.random() * 12) + 1;
+  if (randomNumber > 10) {
+    return 10;
+  } else if (randomNumber === 1) {
+    return 11;
+  } else {
+    return randomNumber;
+  }
+}
 
 function startGame() {
+  let card1 = getRandomNumber();
+  let card2 = getRandomNumber();
+  cards = [card1, card2]
+  sum = card1 + card2
   renderGame();
 }
 
 function renderGame() {
   if (sum <= 20) {
     message = "Do you want another card?";
-    won = false;
+    isAlive = true;
   } else if (sum === 21) {
     message = "You won Black Jack";
+    blackJack = true
   } else {
-    message = "You Lost";
-    won = false;
-    lost = true;
+    message = "You Lost"; 
   }
 
   distributerEl.textContent = message;
 
-  cardsEl.textContent = "Cards: " + card1 + " " + card2;
+  cardsEl.textContent = "Cards: ";
+  for (let i = 0; i < cards.length; i++) {
+    cardsEl.textContent += cards[i] + " ";
+  }
+
   sumEl.textContent = "Sum: " + sum;
 }
 
 function addCard() {
-  let newCard = 5;
+  let newCard = getRandomNumber();
   sum += newCard;
+  cards.push(newCard);
   renderGame();
 }
