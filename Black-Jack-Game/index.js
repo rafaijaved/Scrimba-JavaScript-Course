@@ -1,9 +1,16 @@
+let player = {
+  name: "Rafay",
+  chips: 500,
+};
+
 let cards = [];
 let sum = 0;
 let message = "";
 let distributerEl = document.getElementById("distributer");
 let cardsEl = document.getElementById("cards");
 let sumEl = document.getElementById("sum");
+let playerEl = document.getElementById("player-el");
+playerEl.textContent = player.name + ": $" + player.chips;
 
 let blackJack = false;
 let isAlive = false;
@@ -22,8 +29,8 @@ function getRandomNumber() {
 function startGame() {
   let card1 = getRandomNumber();
   let card2 = getRandomNumber();
-  cards = [card1, card2]
-  sum = card1 + card2
+  cards = [card1, card2];
+  sum = card1 + card2;
   renderGame();
 }
 
@@ -33,9 +40,10 @@ function renderGame() {
     isAlive = true;
   } else if (sum === 21) {
     message = "You won Black Jack";
-    blackJack = true
+    blackJack = true;
   } else {
-    message = "You Lost"; 
+    message = "You Lost";
+    isAlive = false;
   }
 
   distributerEl.textContent = message;
@@ -49,8 +57,10 @@ function renderGame() {
 }
 
 function addCard() {
-  let newCard = getRandomNumber();
-  sum += newCard;
-  cards.push(newCard);
-  renderGame();
+  if (isAlive === true && blackJack === false) {
+    let newCard = getRandomNumber();
+    sum += newCard;
+    cards.push(newCard);
+    renderGame();
+  }
 }
