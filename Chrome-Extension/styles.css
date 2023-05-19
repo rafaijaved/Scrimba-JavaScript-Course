@@ -1,0 +1,23 @@
+input {
+  border: none;
+  background-color: lightgray;
+  height: 20px;
+  padding: 10px;
+  border-radius: 60px;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+}
+
+button {
+  border: none;
+  background-color: lightskyblue;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 60px;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+}
