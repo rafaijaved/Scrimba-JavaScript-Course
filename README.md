@@ -7,3 +7,4 @@ These are my first take on Java Script so the code will be rough.
 
 1. [Passenger Counter](https://rafaijaved.github.io/Scrimba-JavaScript-Course/Passenger-Counter/index.html)
 2. [Black Jack Game](https://rafaijaved.github.io/Scrimba-JavaScript-Course/Black-Jack-Game/index.html)
+3. [Chrome Extension](https://rafaijaved.github.io/Scrimba-JavaScript-Course/Chrome-Extension/index.html)
